@@ -1,0 +1,8 @@
+.landing-page2 {
+	margin: 0;
+}
+.landing-page2 > p:first-child {
+	margin: 0;
+	padding: 0;
+	height: 0;
+}

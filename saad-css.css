@@ -1,0 +1,91 @@
+#gform_wrapper_6 ul li.gfield{
+	clear:both !important;
+}
+.large{
+	width:354px ;
+	padding:10px;
+}
+#gform_wrapper_6 ul li{
+	padding:10px !important;
+}
+#input_6_5{
+	margin-left:0 !important;
+}
+#field_6_6{
+	text-align:center;
+}
+#gform_submit_button_6{
+	width:auto !important;
+}
+.gchoice_5_1{
+    clear: both !important;
+    width: 250px !important;
+    margin-left: 0;
+}
+.gchoice_5_2{
+    clear: both !important;
+    width: 250px !important;
+    margin-left: 0;
+}
+.gfield_label{
+	//text-align:right !important;
+}
+#gform_wrapper_7 ul li.gfield{
+	clear:both !important;
+}
+
+#gform_wrapper_7 ul li{
+	padding:10px !important;
+}
+#input_7_5{
+	margin-left:0 !important;
+	width:width: 395px !important;
+}
+#field_7_6{
+	text-align:center;
+}
+#gform_submit_button_7{
+	width:auto !important;
+}
+#gform_wrapper_8 ul li.gfield{
+	clear:both !important;
+}
+
+#gform_wrapper_8 ul li{
+	padding:10px !important;
+}
+#input_8_5{
+	margin-left:0 !important;
+}
+#field_8_6{
+	text-align:center;
+}
+#gform_submit_button_8{
+	width:auto !important;
+}
+#gform_wrapper_9 ul li.gfield{
+	clear:both !important;
+}
+
+#gform_wrapper_9 ul li{
+	padding:10px !important;
+}
+#input_9_5{
+	margin-left:0 !important;
+}
+#field_9_6{
+	text-align:center;
+}
+#gform_submit_button_9{
+	width:auto !important;
+}
+.leftformarea a{
+	color:#000 !important;
+}
+.leftformarea {
+	background:#d2d1d1;
+	padding:15px;
+	width: 21%;
+float: left;
+margin-right: 20px;
+}
