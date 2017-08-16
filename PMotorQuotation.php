@@ -571,7 +571,7 @@ TODO revert after finishing step form
 
             <div class="contain">
               <div class="vehicle-info clearfix">
-                <div class="vehicle-info__item">
+                <div class="vehicle-info__item vehicle-info__item-model">
                   <label for="vehiclemake">Make</label>
                   <div class="input-block">
                     <select name="vehiclemake" id="vehiclemake" required="required" class="required select" >
@@ -581,7 +581,6 @@ TODO revert after finishing step form
                         <option><?= $make ?></option>
                       <?php } ?>
                     </select>
-                    <!-- <input name="vehiclemake" id="vehiclemake" type="text" required="required" class="required text" /> -->
                   </div><!-- input-block -->
                 </div><!-- vehicle-info__item -->
                 <div class="vehicle-info__item vehicle-info__item-model">
@@ -590,7 +589,6 @@ TODO revert after finishing step form
                     <select disabled name="vehiclemodel" id="vehiclemodel" required="required" class="required select" >
                       <option value="">Select Model...</option>
                     </select>
-                    <!-- <input name="vehiclemodel" id="vehiclemodel" type="text" required="required" class="required text" /> -->
                   </div><!-- input-block -->
                 </div><!-- vehicle-info__item -->
               </div><!-- model -->
@@ -1032,7 +1030,27 @@ TODO revert after finishing step form
           location.href = "#container";
         });
 
+        $('#private_use').change(function() {
+          if ($(this).is(':checked')) {
+            $('.distance-to-work').hide();
+          }
+        });
+        $('#private_use2').change(function() {
+          if ($(this).is(':checked')) {
+            $('.distance-to-work').show();
+          }
+        });
 
+        $(".step-1 form").submit(function(e) {
+          e.preventDefault();
+          
+          $(".comma-error").hide();
+          $(".mandatory-error").hide();
+
+          $(".step-2").show();
+          $(".step-1, .step-3").hide();
+          location.href = "#container";
+        });
         $(".step-2 form").submit(function(e) {
 
           e.preventDefault();
@@ -1060,34 +1078,8 @@ TODO revert after finishing step form
             $(".comma-error").show();
             return false;
           }
-        });
 
-        $('#private_use').change(function() {
-          if ($(this).is(':checked')) {
-            $('.distance-to-work').hide();
-          }
-        });
-        $('#private_use2').change(function() {
-          if ($(this).is(':checked')) {
-            $('.distance-to-work').show();
-          }
-        });
-
-        $(".step-1 form").submit(function(e) {
-          e.preventDefault();
-          
-          $(".comma-error").hide();
-          $(".mandatory-error").hide();
-
-          $(".step-2").show();
-          $(".step-1, .step-3").hide();
-
-          // copy name to second step
-          // if ($("input[name='drivername']").val() == "")
-          //   $("input[name='drivername']").val($("input[name='full_name']").val());
-          location.href = "#container";
-
-          /*window.isDirty = false;
+          window.isDirty = false;
           $(".custom-ajax-loading").show();
 
           window.quotePlanPrices = {};
@@ -1182,10 +1174,9 @@ TODO revert after finishing step form
             $(".step-3").show();
             $(".step-1, .step-2").hide();
             location.href = "#container";
-          }*/
-
+          }
+          
         });
-
       });
  </script>
 
