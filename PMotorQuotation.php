@@ -58,6 +58,14 @@ if ($distnaceOptionList) {
     }
   }
 }
+
+$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+$randomString = '';
+for ($i = 0; $i < 10; $i++) {
+  $randomString .= $characters[rand(0, strlen($characters) - 1)];
+}
+$getrandom =  $randomString;
+
 ?>
 <script>
   autoModelList = <?= json_encode($autoModel); ?>;
@@ -196,15 +204,70 @@ TODO revert after finishing step form
       <!--<div id="about_img" style="background: url(<?php echo $imgsrc[0] ;?>);">-->
       <div id="page" class="motor-quotation-form new_form">
         <div id="my_data_div"></div>
+        <!-- ========================STEP 1======================= -->
         <div class="quotation-step-1 step-1"></div>
         <div class="custom-form step-1">
+          <div class="contain">
+            <div class="mandatory">
+              <p><span>*</span> fields are mandatory</p>
+            </div><!-- mandatory -->
+          </div><!--contain -->
+          <form novalidate>
+
+            <div class="contain">
+              <div class="fullname">
+                <div class="tr">
+                  <div class="td">
+                    <label for="full_name"><span>*</span> Full name</label>
+                  </div>
+                  <div class="td">
+
+                    <input name="full_name" id="full_name" type="text" class="text" placeholder="John F Gorgory" />
+                    <input type="hidden" name="getrandom1" value="--><?php echo $getrandom; ?>" />
+                  </div>
+                </div>
+              </div><!-- fullname -->
+
+              <div class="mobile">
+                <div class="tr">
+                  <div class="td"><label for="mobile"><span>*</span> Mobile phone</label></div>
+                  <div class="td">
+                    <div class="input-block">
+                      <input name="mobilePhone" value="" required="required" placeholder="0123466789" id="mobilePhone" type="text" class="text"/>
+                      <p class="country-message">Area code must be entered</p>
+                    </div>
+                  </div>
+                </div>
+              </div><!-- mobile -->
+
+              <div class="email-address">
+                <div class="tr">
+                  <div class="td"><label for="email_address"><span>*</span> Email address</label></div>
+                  <div class="td">
+                    <div class="input-block">
+                      <input name="email" value="" required="required" placeholder="johnFG@email.com" id="email_address" type="text" class="text" />
+                    </div>
+                  </div>
+                </div>
+              </div><!-- email-address -->
+            </div><!-- contain -->
+            <div class="step-footer">
+              <input type="submit" id="mystep1" value="Continue" onclick="ga('send','pageview', '/step1completed.html');"/>
+            </div><!-- step-footer -->
+
+          </form>
+        </div><!-- step1 -->
 
 
 
-          <!-- ========================STEP 1======================= -->
 
 
-          <!-- <div style="color: #c00;font-weight: bold;font-size: 18px; line-height: 1.6; margin: 35px 0 45px;text-align: center;">Our quote engine is currently undergoing maintenance.<br> Thank you for your interest in Beacon!</div> -->
+        <!-- ========================STEP 2======================= -->
+
+
+        <div class="quotation-step-2 step-2"></div>
+        <div class="custom-form step-2">
+
           <div class="contain">
             <div class="mandatory">
               <p><span>*</span> fields are mandatory</p>
@@ -213,16 +276,8 @@ TODO revert after finishing step form
 
           <form novalidate>
 
-            <?php
-            $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-            $randomString = '';
-            for ($i = 0; $i < 10; $i++) {
-              $randomString .= $characters[rand(0, strlen($characters) - 1)];
-            }
-            $getrandom =  $randomString;
-            ?>
-
-            <input type="hidden" name="getrandom1" value="<?php echo $getrandom; ?>" />
+            <input type="hidden" name="getrandom2" value="<?php echo $getrandom; ?>" />
+            <input type="hidden" id="fom1" name="fom1" value="1"/>
 
             <div class="contain">
               <div class="country">
@@ -636,71 +691,7 @@ TODO revert after finishing step form
             <input name="has_valuation" type="hidden" value="true" />
             <input name="locator_gps" type="hidden" value="false" />
             <input name="immobilizer" type="hidden" value="false" />
-
-            <!-- <div class="mandatory-error" style="color: #8B0000;margin-top: 10px;font-size: 11px;display:none">Please fill the mandatory fields</div> -->
-
-            <div class="step-footer">
-              <input type="submit" id="mystep1" value="Continue" onclick="ga('send','pageview', '/step1completed.html');"/>
-            </div><!-- step-footer -->
-          </form>
-        </div><!-- step1 -->
-
-
-
-
-
-        <!-- ========================STEP 2======================= -->
-
-
-        <div class="quotation-step-2 step-2"></div>
-        <div class="custom-form step-2">
-
-          <div class="contain">
-            <div class="mandatory">
-              <p><span>*</span> fields are mandatory</p>
-            </div><!-- mandatory -->
-          </div><!--contain -->
-
-          <form novalidate>
-
-            <div class="contain">
-              <div class="fullname">
-                <div class="tr">
-                  <div class="td">
-                    <label for="full_name"><span>*</span> Full name</label>
-                  </div>
-                  <div class="td">
-                    <input name="full_name" id="full_name" type="text" class="text" placeholder="John F Gorgory" />
-                    <input type="hidden" id="fom1" name="fom1" value="1"/>
-                    <input type="hidden" name="getrandom2" value="--><?php echo $getrandom; ?>" />
-                  </div>
-                </div>
-              </div><!-- fullname -->
-
-              <div class="mobile">
-                <div class="tr">
-                  <div class="td"><label for="mobile"><span>*</span> Mobile phone</label></div>
-                  <div class="td">
-                    <div class="input-block">
-                      <input name="mobilePhone" value="" required="required" placeholder="0123466789" id="mobilePhone" type="text" class="text"/>
-                      <p class="country-message">Area code must be entered</p>
-                    </div>
-                  </div>
-                </div>
-              </div><!-- mobile -->
-
-              <div class="email-address">
-                <div class="tr">
-                  <div class="td"><label for="email_address"><span>*</span> Email address</label></div>
-                  <div class="td">
-                    <div class="input-block">
-                      <input name="email" value="" required="required" placeholder="johnFG@email.com" id="email_address" type="text" class="text" />
-                    </div>
-                  </div>
-                </div>
-              </div><!-- email-address -->
-            </div><!-- contain -->
-
+            
             <div class="contain step-2-footer">
               <div class="step-footer">
                 <button class="go-to-step-1" type="button">Previous</button>
@@ -710,6 +701,7 @@ TODO revert after finishing step form
             </div><!-- contain -->
 
           </form>
+
         </div><!-- custom step 2 -->
 
 
@@ -799,7 +791,7 @@ TODO revert after finishing step form
       $(document).ready(function(){
 
 
-        $("#mystep1").click(function(e){
+        $("#mystep2").click(function(e){
           if($("#country").val()==""){ alert("Select Country"); $("#country").focus(); e.preventDefault(); return false; }
           if($("#drivername").val()==""){ alert("Provide driver name"); $("#drivername").focus(); e.preventDefault(); return false; }
           if($("#driverexperience").val()==""){ alert("Provide driver experiance"); $("#driverexperience").focus(); e.preventDefault(); return false; }
@@ -844,7 +836,7 @@ TODO revert after finishing step form
           }
 
         });
-        $("#mystep2").click(function(e){
+        $("#mystep1").click(function(e){
             if($("#mobilePhone").val()==""){ alert("Provide Mobile Number"); $("#mobilePhone").focus(); e.preventDefault(); return false; }
             if($("#email_address").val()==""){ alert("Provide Your Email"); $("#email_address").focus(); e.preventDefault(); return false; }
             if(!/(.+)@(.+){2,}\.(.+){2,}/.test($("#email_address").val())){ alert("Incorrect email address"); $("#email_address").focus(); e.preventDefault(); return false; }
@@ -995,9 +987,6 @@ TODO revert after finishing step form
 
       $(document).ready(function() {
 
-
-
-
         $("#final_qoute_final_final,#annual-result-benefits,#annual-result-benefits-only,#annual-result").qtip({
           content: {
             text: "Disclaimer: Please note that the figures quoted are an estimate based only on the" +
@@ -1041,31 +1030,30 @@ TODO revert after finishing step form
         });
 
 
-
-        $(".step-1 form").submit(function(e) {
+        $(".step-2 form").submit(function(e) {
 
           e.preventDefault();
 
           $(".comma-error").hide();
           $(".mandatory-error").hide();
 
-          $(".step-1 form").find("select[required='required'],input[required='required']").each(function() {
+          $(".step-2 form").find("select[required='required'],input[required='required']").each(function() {
             if ($(this).val() == "") {
               $(".mandatory-error").show();
               return false;
             }
           });
 
-          if ($(".step-1 form").find("select[name='country']").val() == "") {
+          if ($(".step-2 form").find("select[name='country']").val() == "") {
             $(".mandatory-error").show();
             return false;
           }
-          if ($(".step-1 form").find("input[name='sum_insured']").val().indexOf(",") != -1) {
+          if ($(".step-2 form").find("input[name='sum_insured']").val().indexOf(",") != -1) {
             $(".comma-error").show();
             return false;
           }
 
-          if ($(".step-1 form").find("input[name='sum_insured']").val().indexOf(".") != -1) {
+          if ($(".step-2 form").find("input[name='sum_insured']").val().indexOf(".") != -1) {
             $(".comma-error").show();
             return false;
           }
@@ -1090,31 +1078,9 @@ TODO revert after finishing step form
           }
         });
 
-        $(".step-2 form").submit(function(e) {
+        $(".step-1 form").submit(function(e) {
           e.preventDefault();
 
-          // if (!($("input[name='email']").val()).match(/@/))
-          // {
-          //   $(".email-error").show();
-          //   return;
-          // }
-          /*
-           if (!($("input[name='phone']").val()).match(/^[\d|\-|\#|\+|\.|\,]+$/))
-           {
-           $(".phone-error").show();
-           return;
-           }
-           if (!($("input[name='homePhone']").val()).match(/^[\d|\-|\#|\+|\.|\,]+$/))
-           {
-           $(".phone-error").show();
-           return;
-           }
-           if (!($("input[name='mobilePhone']").val()).match(/^[\d|\-|\#|\+|\.|\,]+$/))
-           {
-           $(".phone-error").show();
-           return;
-           }
-           */
           window.isDirty = false;
           $(".custom-ajax-loading").show();
 
@@ -1214,20 +1180,6 @@ TODO revert after finishing step form
 
         });
 
-        // $(".step-3").on("change", "select", function() {
-        //       var updatedQuotation = parseFloat(baseQuotation);
-        //       var updatedQuotationBenefitsOnly = 0;
-        //       $(".step-3 select").each(function() {
-        //         var value = $(this).val();
-        //         var optionAmount = $(this).find("option[value='"+value+"']").attr("data-amount");
-        //         updatedQuotation += parseFloat(optionAmount);
-        //         updatedQuotationBenefitsOnly += parseFloat(optionAmount);
-        //       });
-        //       $("#annual-result-benefits").text(updatedQuotation.formatMoney(2, '.', ','));
-        //       $("#annual-result-benefits-only").text(updatedQuotationBenefitsOnly.formatMoney(2, '.', ','));
-        //       $("#final_qoute_final_final").text(updatedQuotation.formatMoney(2, '.', ','));
-        //     });
-        //   });
       });
  </script>
 
