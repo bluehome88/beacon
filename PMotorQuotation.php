@@ -127,6 +127,8 @@ if ($distnaceOptionList) {
   }
 
   </style>
+<!--
+TODO revert after finishing step form
     <div class="request-callback-overlay__bg"></div>
     <div class="request-callback-overlay"> 
         <iframe class="request-callback-overlay__wrap" id="callback-pop-up" allowTransparency="true" src="<?php echo get_template_directory_uri() ?>/request-callback/request-callback.html" frameBorder="0"></iframe>
@@ -139,6 +141,8 @@ if ($distnaceOptionList) {
               $(".request-callback-overlay__bg").hide();
       }
       // Called on window.onload of the iframe
+
+
       $("iframe").load(function() {
         // Find continue-box inside iframe and hide iframe onclick.
         $("#callback-pop-up")
@@ -153,6 +157,7 @@ if ($distnaceOptionList) {
         tmp = $("#callback-pop-up").contents();
       });
     </script>
+-->
 
 
 <div class="wrapper-quote">
@@ -245,56 +250,10 @@ if ($distnaceOptionList) {
                   <div class="age">
                     <label for="age">Age</label>
                     <select name="driver-age" id="age" class="driver-age">
-                      <option value="21">21</option>
-                      <option value="22">22</option>
-                      <option value="23">23</option>
-                      <option value="24">24</option>
-                      <option value="25">25</option>
-                      <option value="26">26</option>
-                      <option value="27">27</option>
-                      <option value="28">28</option>
-                      <option value="29">29</option>
-                      <option value="30">30</option>
-                      <option value="31">31</option>
-                      <option value="32">32</option>
-                      <option value="33">33</option>
-                      <option value="34">34</option>
-                      <option value="35">35</option>
-                      <option value="36">36</option>
-                      <option value="37">37</option>
-                      <option value="38">38</option>
-                      <option value="39">39</option>
-                      <option value="40">40</option>
-                      <option value="41">41</option>
-                      <option value="42">42</option>
-                      <option value="43">43</option>
-                      <option value="44">44</option>
-                      <option value="45">45</option>
-                      <option value="46">46</option>
-                      <option value="47">47</option>
-                      <option value="48">48</option>
-                      <option value="49">49</option>
-                      <option value="50">50</option>
-                      <option value="51">51</option>
-                      <option value="52">52</option>
-                      <option value="53">53</option>
-                      <option value="54">54</option>
-                      <option value="55">55</option>
-                      <option value="56">56</option>
-                      <option value="57">57</option>
-                      <option value="58">58</option>
-                      <option value="59">59</option>
-                      <option value="60">60</option>
-                      <option value="61">61</option>
-                      <option value="62">62</option>
-                      <option value="63">63</option>
-                      <option value="64">64</option>
-                      <option value="65">65</option>
-                      <option value="65">66</option>
-                      <option value="65">67</option>
-                      <option value="65">68</option>
-                      <option value="65">69</option>
-                      <option value="65">70</option>
+                    <?php
+                        for( $age = 21; $age <= 70; $age++)
+                            echo '<option value="'.$age.'">'.$age.'</option>';
+                    ?>
                     </select>
                   </div><!-- age -->
                   <div class="name">
@@ -347,56 +306,10 @@ if ($distnaceOptionList) {
                   <div class="age">
                     <label for="age">Age</label>
                     <select name="driver-1-age" id="age-2" class="driver-age">
-                      <option value="21">21</option>
-                      <option value="22">22</option>
-                      <option value="23">23</option>
-                      <option value="24">24</option>
-                      <option value="25">25</option>
-                      <option value="26">26</option>
-                      <option value="27">27</option>
-                      <option value="28">28</option>
-                      <option value="29">29</option>
-                      <option value="30">30</option>
-                      <option value="31">31</option>
-                      <option value="32">32</option>
-                      <option value="33">33</option>
-                      <option value="34">34</option>
-                      <option value="35">35</option>
-                      <option value="36">36</option>
-                      <option value="37">37</option>
-                      <option value="38">38</option>
-                      <option value="39">39</option>
-                      <option value="40">40</option>
-                      <option value="41">41</option>
-                      <option value="42">42</option>
-                      <option value="43">43</option>
-                      <option value="44">44</option>
-                      <option value="45">45</option>
-                      <option value="46">46</option>
-                      <option value="47">47</option>
-                      <option value="48">48</option>
-                      <option value="49">49</option>
-                      <option value="50">50</option>
-                      <option value="51">51</option>
-                      <option value="52">52</option>
-                      <option value="53">53</option>
-                      <option value="54">54</option>
-                      <option value="55">55</option>
-                      <option value="56">56</option>
-                      <option value="57">57</option>
-                      <option value="58">58</option>
-                      <option value="59">59</option>
-                      <option value="60">60</option>
-                      <option value="61">61</option>
-                      <option value="62">62</option>
-                      <option value="63">63</option>
-                      <option value="64">64</option>
-                      <option value="65">65</option>
-                      <option value="65">66</option>
-                      <option value="65">67</option>
-                      <option value="65">68</option>
-                      <option value="65">69</option>
-                      <option value="65">70</option>
+                    <?php
+                        for( $age = 21; $age <= 70; $age++)
+                            echo '<option value="'.$age.'">'.$age.'</option>';
+                    ?>
                     </select>
                   </div><!-- age -->
                   <div class="name">
@@ -449,56 +362,10 @@ if ($distnaceOptionList) {
                   <div class="age">
                     <label for="age-3">Age</label>
                     <select name="driver-2-age" id="age-3" class="driver-age">
-                      <option value="21">21</option>
-                      <option value="22">22</option>
-                      <option value="23">23</option>
-                      <option value="24">24</option>
-                      <option value="25">25</option>
-                      <option value="26">26</option>
-                      <option value="27">27</option>
-                      <option value="28">28</option>
-                      <option value="29">29</option>
-                      <option value="30">30</option>
-                      <option value="31">31</option>
-                      <option value="32">32</option>
-                      <option value="33">33</option>
-                      <option value="34">34</option>
-                      <option value="35">35</option>
-                      <option value="36">36</option>
-                      <option value="37">37</option>
-                      <option value="38">38</option>
-                      <option value="39">39</option>
-                      <option value="40">40</option>
-                      <option value="41">41</option>
-                      <option value="42">42</option>
-                      <option value="43">43</option>
-                      <option value="44">44</option>
-                      <option value="45">45</option>
-                      <option value="46">46</option>
-                      <option value="47">47</option>
-                      <option value="48">48</option>
-                      <option value="49">49</option>
-                      <option value="50">50</option>
-                      <option value="51">51</option>
-                      <option value="52">52</option>
-                      <option value="53">53</option>
-                      <option value="54">54</option>
-                      <option value="55">55</option>
-                      <option value="56">56</option>
-                      <option value="57">57</option>
-                      <option value="58">58</option>
-                      <option value="59">59</option>
-                      <option value="60">60</option>
-                      <option value="61">61</option>
-                      <option value="62">62</option>
-                      <option value="63">63</option>
-                      <option value="64">64</option>
-                      <option value="65">65</option>
-                      <option value="65">66</option>
-                      <option value="65">67</option>
-                      <option value="65">68</option>
-                      <option value="65">69</option>
-                      <option value="65">70</option>
+                    <?php
+                        for( $age = 21; $age <= 70; $age++)
+                            echo '<option value="'.$age.'">'.$age.'</option>';
+                    ?>
                     </select>
                   </div><!-- age -->
                   <div class="name">
@@ -551,56 +418,10 @@ if ($distnaceOptionList) {
                   <div class="age">
                     <label for="age-4">Age</label>
                     <select name="driver-3-age" id="age-4" class="driver-age">
-                      <option value="21">21</option>
-                      <option value="22">22</option>
-                      <option value="23">23</option>
-                      <option value="24">24</option>
-                      <option value="25">25</option>
-                      <option value="26">26</option>
-                      <option value="27">27</option>
-                      <option value="28">28</option>
-                      <option value="29">29</option>
-                      <option value="30">30</option>
-                      <option value="31">31</option>
-                      <option value="32">32</option>
-                      <option value="33">33</option>
-                      <option value="34">34</option>
-                      <option value="35">35</option>
-                      <option value="36">36</option>
-                      <option value="37">37</option>
-                      <option value="38">38</option>
-                      <option value="39">39</option>
-                      <option value="40">40</option>
-                      <option value="41">41</option>
-                      <option value="42">42</option>
-                      <option value="43">43</option>
-                      <option value="44">44</option>
-                      <option value="45">45</option>
-                      <option value="46">46</option>
-                      <option value="47">47</option>
-                      <option value="48">48</option>
-                      <option value="49">49</option>
-                      <option value="50">50</option>
-                      <option value="51">51</option>
-                      <option value="52">52</option>
-                      <option value="53">53</option>
-                      <option value="54">54</option>
-                      <option value="55">55</option>
-                      <option value="56">56</option>
-                      <option value="57">57</option>
-                      <option value="58">58</option>
-                      <option value="59">59</option>
-                      <option value="60">60</option>
-                      <option value="61">61</option>
-                      <option value="62">62</option>
-                      <option value="63">63</option>
-                      <option value="64">64</option>
-                      <option value="65">65</option>
-                      <option value="65">66</option>
-                      <option value="65">67</option>
-                      <option value="65">68</option>
-                      <option value="65">69</option>
-                      <option value="65">70</option>
+                    <?php
+                        for( $age = 21; $age <= 70; $age++)
+                            echo '<option value="'.$age.'">'.$age.'</option>';
+                    ?>
                     </select>
                   </div><!-- age -->
                   <div class="name">
