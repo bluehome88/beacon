@@ -135,8 +135,7 @@ $getrandom =  $randomString;
   }
 
   </style>
-<!--
-TODO revert after finishing step form
+
     <div class="request-callback-overlay__bg"></div>
     <div class="request-callback-overlay"> 
         <iframe class="request-callback-overlay__wrap" id="callback-pop-up" allowTransparency="true" src="<?php echo get_template_directory_uri() ?>/request-callback/request-callback.html" frameBorder="0"></iframe>
@@ -165,8 +164,6 @@ TODO revert after finishing step form
         tmp = $("#callback-pop-up").contents();
       });
     </script>
--->
-
 
 <div class="wrapper-quote">
   <div class="contain_main_left">
