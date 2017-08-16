@@ -500,6 +500,16 @@ ul.gfield_checkbox label{ margin: 1px 0 0 17px !important;}
     background-image: url(../beacon/images/quotation-step3.png);
 }
 
+.new_form .quotation-step-1{
+  background-image: url(../beacon/images/quotation-new-step1.png);
+}
+.new_form .quotation-step-2{
+  background-image: url(../beacon/images/quotation-new-step2.png);
+}
+.new_form .quotation-step-3{
+  background-image: url(../beacon/images/quotation-new-step3.png);
+}
+
 .add-additional-driver{
     background-image: url(../beacon/images/icon-plus.png);
     width: 16px;

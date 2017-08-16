@@ -194,7 +194,7 @@ TODO revert after finishing step form
     <a href="mailto:uchoosehelp@beacon.co.tt" target="_blank"><img src="<?php echo get_template_directory_uri() ?>/images/icon-question.png" alt=""/></a>
     <div class="contain_rignt_inner" style="background: none!important;">
       <!--<div id="about_img" style="background: url(<?php echo $imgsrc[0] ;?>);">-->
-      <div id="page" class="motor-quotation-form">
+      <div id="page" class="motor-quotation-form new_form">
         <div id="my_data_div"></div>
         <div class="quotation-step-1 step-1"></div>
         <div class="custom-form step-1">
