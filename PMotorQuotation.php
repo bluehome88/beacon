@@ -230,6 +230,24 @@ TODO revert after finishing step form
 
               <div class="mobile">
                 <div class="tr">
+                  <div class="td">
+                    <label for="country"><span>*</span> Country</label>
+                  </div>
+                  <div class="td">
+                    <select name="country" class="required target" id="country">
+                      <option value="" selected="selected">Please select your country</option>
+                      <option value="TT">Trinidad and Tobago</option>
+                      <option value="BA">Barbados</option>
+                      <option value="LE">St. Lucia</option>
+                      <option value="DE">Dominica</option>
+                    </select>
+                    <p class="country-message">If not listed please contact your local office</p>
+                  </div>
+                </div><!-- country -->
+              </div>
+
+              <div class="mobile">
+                <div class="tr">
                   <div class="td"><label for="mobile"><span>*</span> Mobile phone</label></div>
                   <div class="td">
                     <div class="input-block">
@@ -278,22 +296,6 @@ TODO revert after finishing step form
 
             <input type="hidden" name="getrandom2" value="<?php echo $getrandom; ?>" />
             <input type="hidden" id="fom1" name="fom1" value="1"/>
-
-            <div class="contain">
-              <div class="country">
-                <label for="country"><span>*</span> Country</label>
-                <div class="input-block">
-                  <select name="country" class="required target" style="width: 260px;" id="country">
-                    <option value="" selected="selected">Please select your country</option>
-                    <option value="TT">Trinidad and Tobago</option>
-                    <option value="BA">Barbados</option>
-                    <option value="LE">St. Lucia</option>
-                    <option value="DE">Dominica</option>
-                  </select>
-                  <div class="country-message"><p>If not listed please contact your local office</p></div>
-                </div>
-              </div><!-- country -->
-            </div><!-- contain -->
 
             <div class="contain">
               <h2 class="dinfo">Driver InFORMATION</h2>
@@ -792,7 +794,6 @@ TODO revert after finishing step form
 
 
         $("#mystep2").click(function(e){
-          if($("#country").val()==""){ alert("Select Country"); $("#country").focus(); e.preventDefault(); return false; }
           if($("#drivername").val()==""){ alert("Provide driver name"); $("#drivername").focus(); e.preventDefault(); return false; }
           if($("#driverexperience").val()==""){ alert("Provide driver experiance"); $("#driverexperience").focus(); e.preventDefault(); return false; }
           if($("#driverclaims").val()==""){ alert("Provide driver claims"); $("#driverclaims").focus();  e.preventDefault(); return false; }
@@ -837,6 +838,8 @@ TODO revert after finishing step form
 
         });
         $("#mystep1").click(function(e){
+            if($("#full_name").val()==""){ alert("Provide Full Name"); $("#full_name").focus(); e.preventDefault(); return false; }
+            if($("#country").val()==""){ alert("Select Country"); $("#country").focus(); e.preventDefault(); return false; }
             if($("#mobilePhone").val()==""){ alert("Provide Mobile Number"); $("#mobilePhone").focus(); e.preventDefault(); return false; }
             if($("#email_address").val()==""){ alert("Provide Your Email"); $("#email_address").focus(); e.preventDefault(); return false; }
             if(!/(.+)@(.+){2,}\.(.+){2,}/.test($("#email_address").val())){ alert("Incorrect email address"); $("#email_address").focus(); e.preventDefault(); return false; }
@@ -1057,14 +1060,6 @@ TODO revert after finishing step form
             $(".comma-error").show();
             return false;
           }
-
-          $(".step-2").show();
-          $(".step-1, .step-3").hide();
-
-          // copy name to second step
-          if ($("input[name='full_name']").val() == "")
-            $("input[name='full_name']").val($("input[name='driver-name']").val());
-          location.href = "#container";
         });
 
         $('#private_use').change(function() {
@@ -1080,8 +1075,19 @@ TODO revert after finishing step form
 
         $(".step-1 form").submit(function(e) {
           e.preventDefault();
+          
+          $(".comma-error").hide();
+          $(".mandatory-error").hide();
 
-          window.isDirty = false;
+          $(".step-2").show();
+          $(".step-1, .step-3").hide();
+
+          // copy name to second step
+          // if ($("input[name='drivername']").val() == "")
+          //   $("input[name='drivername']").val($("input[name='full_name']").val());
+          location.href = "#container";
+
+          /*window.isDirty = false;
           $(".custom-ajax-loading").show();
 
           window.quotePlanPrices = {};
@@ -1176,7 +1182,7 @@ TODO revert after finishing step form
             $(".step-3").show();
             $(".step-1, .step-2").hide();
             location.href = "#container";
-          }
+          }*/
 
         });
 
