@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Private Motor Quotation Template
+ * Template Name: Private Motor Quotation Template - New
  * The template for displaying all pages.
  *
  * This is the template that displays all pages by default.
@@ -58,6 +58,14 @@ if ($distnaceOptionList) {
     }
   }
 }
+
+$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+$randomString = '';
+for ($i = 0; $i < 10; $i++) {
+  $randomString .= $characters[rand(0, strlen($characters) - 1)];
+}
+$getrandom =  $randomString;
+
 ?>
 <script>
   autoModelList = <?= json_encode($autoModel); ?>;
@@ -127,6 +135,7 @@ if ($distnaceOptionList) {
   }
 
   </style>
+
     <div class="request-callback-overlay__bg"></div>
     <div class="request-callback-overlay"> 
         <iframe class="request-callback-overlay__wrap" id="callback-pop-up" allowTransparency="true" src="<?php echo get_template_directory_uri() ?>/request-callback/request-callback.html" frameBorder="0"></iframe>
@@ -139,6 +148,8 @@ if ($distnaceOptionList) {
               $(".request-callback-overlay__bg").hide();
       }
       // Called on window.onload of the iframe
+
+
       $("iframe").load(function() {
         // Find continue-box inside iframe and hide iframe onclick.
         $("#callback-pop-up")
@@ -153,7 +164,6 @@ if ($distnaceOptionList) {
         tmp = $("#callback-pop-up").contents();
       });
     </script>
-
 
 <div class="wrapper-quote">
   <div class="contain_main_left">
@@ -189,17 +199,90 @@ if ($distnaceOptionList) {
     <a href="mailto:uchoosehelp@beacon.co.tt" target="_blank"><img src="<?php echo get_template_directory_uri() ?>/images/icon-question.png" alt=""/></a>
     <div class="contain_rignt_inner" style="background: none!important;">
       <!--<div id="about_img" style="background: url(<?php echo $imgsrc[0] ;?>);">-->
-      <div id="page" class="motor-quotation-form">
+      <div id="page" class="motor-quotation-form new_form">
         <div id="my_data_div"></div>
+        <!-- ========================STEP 1======================= -->
         <div class="quotation-step-1 step-1"></div>
         <div class="custom-form step-1">
+          <div class="contain">
+            <div class="mandatory">
+              <p><span>*</span> fields are mandatory</p>
+            </div><!-- mandatory -->
+          </div><!--contain -->
+          <form novalidate>
+
+            <div class="contain">
+              <div class="fullname">
+                <div class="tr">
+                  <div class="td">
+                    <label for="full_name"><span>*</span> Full name</label>
+                  </div>
+                  <div class="td">
+
+                    <input name="full_name" id="full_name" type="text" class="text" placeholder="John F Gorgory" />
+                    <input type="hidden" name="getrandom1" value="--><?php echo $getrandom; ?>" />
+                  </div>
+                </div>
+              </div><!-- fullname -->
+
+              <div class="mobile">
+                <div class="tr">
+                  <div class="td">
+                    <label for="country"><span>*</span> Country</label>
+                  </div>
+                  <div class="td">
+                    <select name="country" class="required target" id="country">
+                      <option value="" selected="selected">Please select your country</option>
+                      <option value="TT">Trinidad and Tobago</option>
+                      <option value="BA">Barbados</option>
+                      <option value="LE">St. Lucia</option>
+                      <option value="DE">Dominica</option>
+                    </select>
+                    <p class="country-message">If not listed please contact your local office</p>
+                  </div>
+                </div><!-- country -->
+              </div>
+
+              <div class="mobile">
+                <div class="tr">
+                  <div class="td"><label for="mobile"><span>*</span> Mobile phone</label></div>
+                  <div class="td">
+                    <div class="input-block">
+                      <input name="mobilePhone" value="" required="required" placeholder="0123466789" id="mobilePhone" type="text" class="text"/>
+                      <p class="country-message">Area code must be entered</p>
+                    </div>
+                  </div>
+                </div>
+              </div><!-- mobile -->
+
+              <div class="email-address">
+                <div class="tr">
+                  <div class="td"><label for="email_address"><span>*</span> Email address</label></div>
+                  <div class="td">
+                    <div class="input-block">
+                      <input name="email" value="" required="required" placeholder="johnFG@email.com" id="email_address" type="text" class="text" />
+                    </div>
+                  </div>
+                </div>
+              </div><!-- email-address -->
+            </div><!-- contain -->
+            <div class="step-footer">
+              <input type="submit" id="mystep1" value="Continue" onclick="ga('send','pageview', '/stepB1completed.html');"/>
+            </div><!-- step-footer -->
+
+          </form>
+        </div><!-- step1 -->
 
 
 
-          <!-- ========================STEP 1======================= -->
 
 
-          <!-- <div style="color: #c00;font-weight: bold;font-size: 18px; line-height: 1.6; margin: 35px 0 45px;text-align: center;">Our quote engine is currently undergoing maintenance.<br> Thank you for your interest in Beacon!</div> -->
+        <!-- ========================STEP 2======================= -->
+
+
+        <div class="quotation-step-2 step-2"></div>
+        <div class="custom-form step-2">
+
           <div class="contain">
             <div class="mandatory">
               <p><span>*</span> fields are mandatory</p>
@@ -208,32 +291,8 @@ if ($distnaceOptionList) {
 
           <form novalidate>
 
-            <?php
-            $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-            $randomString = '';
-            for ($i = 0; $i < 10; $i++) {
-              $randomString .= $characters[rand(0, strlen($characters) - 1)];
-            }
-            $getrandom =  $randomString;
-            ?>
-
-            <input type="hidden" name="getrandom1" value="<?php echo $getrandom; ?>" />
-
-            <div class="contain">
-              <div class="country">
-                <label for="country"><span>*</span> Country</label>
-                <div class="input-block">
-                  <select name="country" class="required target" style="width: 260px;" id="country">
-                    <option value="" selected="selected">Please select your country</option>
-                    <option value="TT">Trinidad and Tobago</option>
-                    <option value="BA">Barbados</option>
-                    <option value="LE">St. Lucia</option>
-                    <option value="DE">Dominica</option>
-                  </select>
-                  <div class="country-message"><p>If not listed please contact your local office</p></div>
-                </div>
-              </div><!-- country -->
-            </div><!-- contain -->
+            <input type="hidden" name="getrandom2" value="<?php echo $getrandom; ?>" />
+            <input type="hidden" id="fom1" name="fom1" value="1"/>
 
             <div class="contain">
               <h2 class="dinfo">Driver InFORMATION</h2>
@@ -245,56 +304,10 @@ if ($distnaceOptionList) {
                   <div class="age">
                     <label for="age">Age</label>
                     <select name="driver-age" id="age" class="driver-age">
-                      <option value="21">21</option>
-                      <option value="22">22</option>
-                      <option value="23">23</option>
-                      <option value="24">24</option>
-                      <option value="25">25</option>
-                      <option value="26">26</option>
-                      <option value="27">27</option>
-                      <option value="28">28</option>
-                      <option value="29">29</option>
-                      <option value="30">30</option>
-                      <option value="31">31</option>
-                      <option value="32">32</option>
-                      <option value="33">33</option>
-                      <option value="34">34</option>
-                      <option value="35">35</option>
-                      <option value="36">36</option>
-                      <option value="37">37</option>
-                      <option value="38">38</option>
-                      <option value="39">39</option>
-                      <option value="40">40</option>
-                      <option value="41">41</option>
-                      <option value="42">42</option>
-                      <option value="43">43</option>
-                      <option value="44">44</option>
-                      <option value="45">45</option>
-                      <option value="46">46</option>
-                      <option value="47">47</option>
-                      <option value="48">48</option>
-                      <option value="49">49</option>
-                      <option value="50">50</option>
-                      <option value="51">51</option>
-                      <option value="52">52</option>
-                      <option value="53">53</option>
-                      <option value="54">54</option>
-                      <option value="55">55</option>
-                      <option value="56">56</option>
-                      <option value="57">57</option>
-                      <option value="58">58</option>
-                      <option value="59">59</option>
-                      <option value="60">60</option>
-                      <option value="61">61</option>
-                      <option value="62">62</option>
-                      <option value="63">63</option>
-                      <option value="64">64</option>
-                      <option value="65">65</option>
-                      <option value="65">66</option>
-                      <option value="65">67</option>
-                      <option value="65">68</option>
-                      <option value="65">69</option>
-                      <option value="65">70</option>
+                    <?php
+                        for( $age = 21; $age <= 70; $age++)
+                            echo '<option value="'.$age.'">'.$age.'</option>';
+                    ?>
                     </select>
                   </div><!-- age -->
                   <div class="name">
@@ -347,56 +360,10 @@ if ($distnaceOptionList) {
                   <div class="age">
                     <label for="age">Age</label>
                     <select name="driver-1-age" id="age-2" class="driver-age">
-                      <option value="21">21</option>
-                      <option value="22">22</option>
-                      <option value="23">23</option>
-                      <option value="24">24</option>
-                      <option value="25">25</option>
-                      <option value="26">26</option>
-                      <option value="27">27</option>
-                      <option value="28">28</option>
-                      <option value="29">29</option>
-                      <option value="30">30</option>
-                      <option value="31">31</option>
-                      <option value="32">32</option>
-                      <option value="33">33</option>
-                      <option value="34">34</option>
-                      <option value="35">35</option>
-                      <option value="36">36</option>
-                      <option value="37">37</option>
-                      <option value="38">38</option>
-                      <option value="39">39</option>
-                      <option value="40">40</option>
-                      <option value="41">41</option>
-                      <option value="42">42</option>
-                      <option value="43">43</option>
-                      <option value="44">44</option>
-                      <option value="45">45</option>
-                      <option value="46">46</option>
-                      <option value="47">47</option>
-                      <option value="48">48</option>
-                      <option value="49">49</option>
-                      <option value="50">50</option>
-                      <option value="51">51</option>
-                      <option value="52">52</option>
-                      <option value="53">53</option>
-                      <option value="54">54</option>
-                      <option value="55">55</option>
-                      <option value="56">56</option>
-                      <option value="57">57</option>
-                      <option value="58">58</option>
-                      <option value="59">59</option>
-                      <option value="60">60</option>
-                      <option value="61">61</option>
-                      <option value="62">62</option>
-                      <option value="63">63</option>
-                      <option value="64">64</option>
-                      <option value="65">65</option>
-                      <option value="65">66</option>
-                      <option value="65">67</option>
-                      <option value="65">68</option>
-                      <option value="65">69</option>
-                      <option value="65">70</option>
+                    <?php
+                        for( $age = 21; $age <= 70; $age++)
+                            echo '<option value="'.$age.'">'.$age.'</option>';
+                    ?>
                     </select>
                   </div><!-- age -->
                   <div class="name">
@@ -449,56 +416,10 @@ if ($distnaceOptionList) {
                   <div class="age">
                     <label for="age-3">Age</label>
                     <select name="driver-2-age" id="age-3" class="driver-age">
-                      <option value="21">21</option>
-                      <option value="22">22</option>
-                      <option value="23">23</option>
-                      <option value="24">24</option>
-                      <option value="25">25</option>
-                      <option value="26">26</option>
-                      <option value="27">27</option>
-                      <option value="28">28</option>
-                      <option value="29">29</option>
-                      <option value="30">30</option>
-                      <option value="31">31</option>
-                      <option value="32">32</option>
-                      <option value="33">33</option>
-                      <option value="34">34</option>
-                      <option value="35">35</option>
-                      <option value="36">36</option>
-                      <option value="37">37</option>
-                      <option value="38">38</option>
-                      <option value="39">39</option>
-                      <option value="40">40</option>
-                      <option value="41">41</option>
-                      <option value="42">42</option>
-                      <option value="43">43</option>
-                      <option value="44">44</option>
-                      <option value="45">45</option>
-                      <option value="46">46</option>
-                      <option value="47">47</option>
-                      <option value="48">48</option>
-                      <option value="49">49</option>
-                      <option value="50">50</option>
-                      <option value="51">51</option>
-                      <option value="52">52</option>
-                      <option value="53">53</option>
-                      <option value="54">54</option>
-                      <option value="55">55</option>
-                      <option value="56">56</option>
-                      <option value="57">57</option>
-                      <option value="58">58</option>
-                      <option value="59">59</option>
-                      <option value="60">60</option>
-                      <option value="61">61</option>
-                      <option value="62">62</option>
-                      <option value="63">63</option>
-                      <option value="64">64</option>
-                      <option value="65">65</option>
-                      <option value="65">66</option>
-                      <option value="65">67</option>
-                      <option value="65">68</option>
-                      <option value="65">69</option>
-                      <option value="65">70</option>
+                    <?php
+                        for( $age = 21; $age <= 70; $age++)
+                            echo '<option value="'.$age.'">'.$age.'</option>';
+                    ?>
                     </select>
                   </div><!-- age -->
                   <div class="name">
@@ -551,56 +472,10 @@ if ($distnaceOptionList) {
                   <div class="age">
                     <label for="age-4">Age</label>
                     <select name="driver-3-age" id="age-4" class="driver-age">
-                      <option value="21">21</option>
-                      <option value="22">22</option>
-                      <option value="23">23</option>
-                      <option value="24">24</option>
-                      <option value="25">25</option>
-                      <option value="26">26</option>
-                      <option value="27">27</option>
-                      <option value="28">28</option>
-                      <option value="29">29</option>
-                      <option value="30">30</option>
-                      <option value="31">31</option>
-                      <option value="32">32</option>
-                      <option value="33">33</option>
-                      <option value="34">34</option>
-                      <option value="35">35</option>
-                      <option value="36">36</option>
-                      <option value="37">37</option>
-                      <option value="38">38</option>
-                      <option value="39">39</option>
-                      <option value="40">40</option>
-                      <option value="41">41</option>
-                      <option value="42">42</option>
-                      <option value="43">43</option>
-                      <option value="44">44</option>
-                      <option value="45">45</option>
-                      <option value="46">46</option>
-                      <option value="47">47</option>
-                      <option value="48">48</option>
-                      <option value="49">49</option>
-                      <option value="50">50</option>
-                      <option value="51">51</option>
-                      <option value="52">52</option>
-                      <option value="53">53</option>
-                      <option value="54">54</option>
-                      <option value="55">55</option>
-                      <option value="56">56</option>
-                      <option value="57">57</option>
-                      <option value="58">58</option>
-                      <option value="59">59</option>
-                      <option value="60">60</option>
-                      <option value="61">61</option>
-                      <option value="62">62</option>
-                      <option value="63">63</option>
-                      <option value="64">64</option>
-                      <option value="65">65</option>
-                      <option value="65">66</option>
-                      <option value="65">67</option>
-                      <option value="65">68</option>
-                      <option value="65">69</option>
-                      <option value="65">70</option>
+                    <?php
+                        for( $age = 21; $age <= 70; $age++)
+                            echo '<option value="'.$age.'">'.$age.'</option>';
+                    ?>
                     </select>
                   </div><!-- age -->
                   <div class="name">
@@ -693,7 +568,7 @@ if ($distnaceOptionList) {
 
             <div class="contain">
               <div class="vehicle-info clearfix">
-                <div class="vehicle-info__item">
+                <div class="vehicle-info__item vehicle-info__item-model">
                   <label for="vehiclemake">Make</label>
                   <div class="input-block">
                     <select name="vehiclemake" id="vehiclemake" required="required" class="required select" >
@@ -703,7 +578,6 @@ if ($distnaceOptionList) {
                         <option><?= $make ?></option>
                       <?php } ?>
                     </select>
-                    <!-- <input name="vehiclemake" id="vehiclemake" type="text" required="required" class="required text" /> -->
                   </div><!-- input-block -->
                 </div><!-- vehicle-info__item -->
                 <div class="vehicle-info__item vehicle-info__item-model">
@@ -712,7 +586,6 @@ if ($distnaceOptionList) {
                     <select disabled name="vehiclemodel" id="vehiclemodel" required="required" class="required select" >
                       <option value="">Select Model...</option>
                     </select>
-                    <!-- <input name="vehiclemodel" id="vehiclemodel" type="text" required="required" class="required text" /> -->
                   </div><!-- input-block -->
                 </div><!-- vehicle-info__item -->
               </div><!-- model -->
@@ -815,80 +688,17 @@ if ($distnaceOptionList) {
             <input name="has_valuation" type="hidden" value="true" />
             <input name="locator_gps" type="hidden" value="false" />
             <input name="immobilizer" type="hidden" value="false" />
-
-            <!-- <div class="mandatory-error" style="color: #8B0000;margin-top: 10px;font-size: 11px;display:none">Please fill the mandatory fields</div> -->
-
-            <div class="step-footer">
-              <input type="submit" id="mystep1" value="Continue" onclick="ga('send','pageview', '/stepA1completed.html');"/>
-            </div><!-- step-footer -->
-          </form>
-        </div><!-- step1 -->
-
-
-
-
-
-        <!-- ========================STEP 2======================= -->
-
-
-        <div class="quotation-step-2 step-2"></div>
-        <div class="custom-form step-2">
-
-          <div class="contain">
-            <div class="mandatory">
-              <p><span>*</span> fields are mandatory</p>
-            </div><!-- mandatory -->
-          </div><!--contain -->
-
-          <form novalidate>
-
-            <div class="contain">
-              <div class="fullname">
-                <div class="tr">
-                  <div class="td">
-                    <label for="full_name"><span>*</span> Full name</label>
-                  </div>
-                  <div class="td">
-                    <input name="full_name" id="full_name" type="text" class="text" placeholder="John F Gorgory" />
-                    <input type="hidden" id="fom1" name="fom1" value="1"/>
-                    <input type="hidden" name="getrandom2" value="--><?php echo $getrandom; ?>" />
-                  </div>
-                </div>
-              </div><!-- fullname -->
-
-              <div class="mobile">
-                <div class="tr">
-                  <div class="td"><label for="mobile"><span>*</span> Mobile phone</label></div>
-                  <div class="td">
-                    <div class="input-block">
-                      <input name="mobilePhone" value="" required="required" placeholder="0123466789" id="mobilePhone" type="text" class="text"/>
-                      <p class="country-message">Area code must be entered</p>
-                    </div>
-                  </div>
-                </div>
-              </div><!-- mobile -->
-
-              <div class="email-address">
-                <div class="tr">
-                  <div class="td"><label for="email_address"><span>*</span> Email address</label></div>
-                  <div class="td">
-                    <div class="input-block">
-                      <input name="email" value="" required="required" placeholder="johnFG@email.com" id="email_address" type="text" class="text" />
-                    </div>
-                  </div>
-                </div>
-              </div><!-- email-address -->
-            </div><!-- contain -->
-
+            
             <div class="contain step-2-footer">
               <div class="step-footer">
                 <button class="go-to-step-1" type="button">Previous</button>
-                <input type="submit" id="mystep2" value="Click to see your coverage options" onclick="ga('send','pageview', '/stepA2completed.html');"/>
+                <input type="submit" id="mystep2" value="Click to see your coverage options" onclick="ga('send','pageview', '/stepB2completed.html');"/>
               </div><!-- step-footer -->
               <div class="custom-ajax-loading"></div>
             </div><!-- contain -->
 
           </form>
+
         </div><!-- custom step 2 -->
 
 
@@ -973,13 +783,13 @@ if ($distnaceOptionList) {
           }
 
         });
+        
       });
 
       $(document).ready(function(){
 
 
-        $("#mystep1").click(function(e){
-          if($("#country").val()==""){ alert("Select Country"); $("#country").focus(); e.preventDefault(); return false; }
+        $("#mystep2").click(function(e){
           if($("#drivername").val()==""){ alert("Provide driver name"); $("#drivername").focus(); e.preventDefault(); return false; }
           if($("#driverexperience").val()==""){ alert("Provide driver experiance"); $("#driverexperience").focus(); e.preventDefault(); return false; }
           if($("#driverclaims").val()==""){ alert("Provide driver claims"); $("#driverclaims").focus();  e.preventDefault(); return false; }
@@ -1023,7 +833,9 @@ if ($distnaceOptionList) {
           }
 
         });
-        $("#mystep2").click(function(e){
+        $("#mystep1").click(function(e){
+            if($("#full_name").val()==""){ alert("Provide Full Name"); $("#full_name").focus(); e.preventDefault(); return false; }
+            if($("#country").val()==""){ alert("Select Country"); $("#country").focus(); e.preventDefault(); return false; }
             if($("#mobilePhone").val()==""){ alert("Provide Mobile Number"); $("#mobilePhone").focus(); e.preventDefault(); return false; }
             if($("#email_address").val()==""){ alert("Provide Your Email"); $("#email_address").focus(); e.preventDefault(); return false; }
             if(!/(.+)@(.+){2,}\.(.+){2,}/.test($("#email_address").val())){ alert("Incorrect email address"); $("#email_address").focus(); e.preventDefault(); return false; }
@@ -1174,9 +986,6 @@ if ($distnaceOptionList) {
 
       $(document).ready(function() {
 
-
-
-
         $("#final_qoute_final_final,#annual-result-benefits,#annual-result-benefits-only,#annual-result").qtip({
           content: {
             text: "Disclaimer: Please note that the figures quoted are an estimate based only on the" +
@@ -1219,45 +1028,6 @@ if ($distnaceOptionList) {
           location.href = "#container";
         });
 
-
-
-        $(".step-1 form").submit(function(e) {
-
-          e.preventDefault();
-
-          $(".comma-error").hide();
-          $(".mandatory-error").hide();
-
-          $(".step-1 form").find("select[required='required'],input[required='required']").each(function() {
-            if ($(this).val() == "") {
-              $(".mandatory-error").show();
-              return false;
-            }
-          });
-
-          if ($(".step-1 form").find("select[name='country']").val() == "") {
-            $(".mandatory-error").show();
-            return false;
-          }
-          if ($(".step-1 form").find("input[name='sum_insured']").val().indexOf(",") != -1) {
-            $(".comma-error").show();
-            return false;
-          }
-
-          if ($(".step-1 form").find("input[name='sum_insured']").val().indexOf(".") != -1) {
-            $(".comma-error").show();
-            return false;
-          }
-
-          $(".step-2").show();
-          $(".step-1, .step-3").hide();
-
-          // copy name to second step
-          if ($("input[name='full_name']").val() == "")
-            $("input[name='full_name']").val($("input[name='driver-name']").val());
-          location.href = "#container";
-        });
-
         $('#private_use').change(function() {
           if ($(this).is(':checked')) {
             $('.distance-to-work').hide();
@@ -1269,31 +1039,44 @@ if ($distnaceOptionList) {
           }
         });
 
+        $(".step-1 form").submit(function(e) {
+          e.preventDefault();
+          
+          $(".comma-error").hide();
+          $(".mandatory-error").hide();
+
+          $(".step-2").show();
+          $(".step-1, .step-3").hide();
+          location.href = "#container";
+        });
         $(".step-2 form").submit(function(e) {
+
           e.preventDefault();
 
-          // if (!($("input[name='email']").val()).match(/@/))
-          // {
-          //   $(".email-error").show();
-          //   return;
-          // }
-          /*
-           if (!($("input[name='phone']").val()).match(/^[\d|\-|\#|\+|\.|\,]+$/))
-           {
-           $(".phone-error").show();
-           return;
-           }
-           if (!($("input[name='homePhone']").val()).match(/^[\d|\-|\#|\+|\.|\,]+$/))
-           {
-           $(".phone-error").show();
-           return;
-           }
-           if (!($("input[name='mobilePhone']").val()).match(/^[\d|\-|\#|\+|\.|\,]+$/))
-           {
-           $(".phone-error").show();
-           return;
-           }
-           */
+          $(".comma-error").hide();
+          $(".mandatory-error").hide();
+
+          $(".step-2 form").find("select[required='required'],input[required='required']").each(function() {
+            if ($(this).val() == "") {
+              $(".mandatory-error").show();
+              return false;
+            }
+          });
+
+          if ($(".step-2 form").find("select[name='country']").val() == "") {
+            $(".mandatory-error").show();
+            return false;
+          }
+          if ($(".step-2 form").find("input[name='sum_insured']").val().indexOf(",") != -1) {
+            $(".comma-error").show();
+            return false;
+          }
+
+          if ($(".step-2 form").find("input[name='sum_insured']").val().indexOf(".") != -1) {
+            $(".comma-error").show();
+            return false;
+          }
+
           window.isDirty = false;
           $(".custom-ajax-loading").show();
 
@@ -1390,23 +1173,8 @@ if ($distnaceOptionList) {
             $(".step-1, .step-2").hide();
             location.href = "#container";
           }
-
+          
         });
-
-        // $(".step-3").on("change", "select", function() {
-        //       var updatedQuotation = parseFloat(baseQuotation);
-        //       var updatedQuotationBenefitsOnly = 0;
-        //       $(".step-3 select").each(function() {
-        //         var value = $(this).val();
-        //         var optionAmount = $(this).find("option[value='"+value+"']").attr("data-amount");
-        //         updatedQuotation += parseFloat(optionAmount);
-        //         updatedQuotationBenefitsOnly += parseFloat(optionAmount);
-        //       });
-        //       $("#annual-result-benefits").text(updatedQuotation.formatMoney(2, '.', ','));
-        //       $("#annual-result-benefits-only").text(updatedQuotationBenefitsOnly.formatMoney(2, '.', ','));
-        //       $("#final_qoute_final_final").text(updatedQuotation.formatMoney(2, '.', ','));
-        //     });
-        //   });
       });
  </script>
 
