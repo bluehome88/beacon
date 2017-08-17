@@ -104,7 +104,7 @@
     <div class="contain step-3-footer">
       <div class="step-footer">
         <button class="go-to-step-1" type="button">Previous</button>
-        <button class="go-to-very-last-step" onclick="ga('send','pageview', '/stepA3completed.html');">view final quote</button>
+        <button class="go-to-very-last-step" onclick="ga('send','pageview', '/stepB3completed.html');">view final quote</button>
       </div><!-- step-footer -->
       <div class="custom-ajax-loading"></div>
     </div><!-- contain -->

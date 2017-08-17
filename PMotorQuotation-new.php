@@ -1087,7 +1087,7 @@ $getrandom =  $randomString;
             $.ajax({
               type: "POST",
               url: "<?php echo get_template_directory_uri() ?>/PMotorAjax.php",
-              data: alld + "&step2_completed=1",
+              data: alld + "&step2_completed=1&form=new",
               success: function(response) {
                 step1Modified = true;
                 step3Loaded = true;

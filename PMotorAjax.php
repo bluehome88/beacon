@@ -372,8 +372,11 @@ function siGetStep3Html() {
     }
 
     ob_start();
-
-    require_once __DIR__ . '/includes/template/motor-quotation/step-3.php';
+	if (@$_POST['form'] == "origin" )
+	    require_once __DIR__ . '/includes/template/motor-quotation/step-3.php';
+	else
+		require_once __DIR__ . '/includes/template/motor-quotation/step-3-new.php';
+    
 
     return ob_get_clean();
 }
