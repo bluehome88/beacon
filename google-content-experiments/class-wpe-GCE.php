@@ -22,7 +22,7 @@ class GCE {
 		
 		// Add code if Content Experiment is enabled for this post/page
 		if( isset( $wpe_gce_active ) && $wpe_gce_active == '1' ) {
-			add_action( 'wp', array( $this, 'prepare_output' ), 0 );
+			add_action( 'wp_head', array( $this, 'output_code' ), 0 );
 		}
 	}
 
@@ -31,7 +31,7 @@ class GCE {
 	 */
 	public function prepare_output() {
 		// Add output_code function to custom hook
-		add_action( 'wpe_gce_head', array( $this, 'output_code' ), 0 );
+		add_action( 'wp_head', array( $this, 'output_code' ), 0 );
 		
 		// Check if active theme is supported
 		switch ( $this->check_theme() ) {
@@ -62,9 +62,10 @@ class GCE {
 	 *  The code to output after the <head> tag
 	 */
 	public function output_code() {
+
 		global $post;
 		$wpe_gce_code = get_post_meta( $post->ID, '_wpe_gce_code', TRUE );
-		echo $wpe_gce_code . PHP_EOL;;
+		echo $wpe_gce_code . PHP_EOL;
 	}
 	
 	/**
